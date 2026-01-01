@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>Application IV4 Desktop</title>
+<style>
+  body { 
+    margin: 0; 
+    font-family: Arial; 
+    text-align: center; 
+    background: #222; 
+    color: white; 
+  }
+  img#logo {
+    width: 200px;
+    margin-top: 20px;
+  }
+  img#liveView { 
+    border: 2px solid #555; 
+    margin-top: 20px; 
+    width: 640px; 
+    height: 480px; 
+  }
+  button { 
+    margin-top: 20px; 
+    padding: 10px 20px; 
+    cursor: pointer; 
+    background: #444; 
+    color: white; 
+    border: none; 
+    font-size: 16px;
+  }
+  button:hover {
+    background: #666;
+  }
+  .config-panel {
+    background: #333;
+    padding: 20px;
+    margin: 20px auto;
+    width: 400px;
+    border-radius: 8px;
+  }
+  .config-row {
+    margin: 10px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  input[type="text"] {
+    padding: 8px;
+    background: #555;
+    color: white;
+    border: 1px solid #777;
+    border-radius: 4px;
+    width: 150px;
+  }
+  .status {
+    margin-top: 10px;
+    padding: 5px;
+    border-radius: 4px;
+  }
+  .status.connected {
+    background: #2d5a2d;
+    color: #90ee90;
+  }
+  .status.disconnected {
+    background: #5a2d2d;
+    color: #ff9090;
+  }
+</style>
+</head>
+<body>
+
+<!-- Logo -->
+<img id="logo" src="https://er2i-industrie.com/assets/img/logo.svg" alt="ER2I Logo">
+
+<h1>Vue en Direct IV4</h1>
+
+<!-- Configuration Panel -->
+<div class="config-panel">
+  <h3>Configuration Capteur IV4</h3>
+  <div class="config-row">
+    <label>Adresse IP:</label>
+    <input type="text" id="ipInput" value="192.168.0.10" placeholder="192.168.0.10">
+  </div>
+  <div class="config-row">
+    <button id="connectBtn">Connecter</button>
+    <button id="disconnectBtn">Déconnecter</button>
+  </div>
+  <div id="connectionStatus" class="status disconnected">Déconnecté</div>
+</div>
+
+<!-- Live image from IV4 -->
+<img id="liveView" src="" alt="Vue en direct">
+<br>
+
+<!-- Snapshot button -->
+<button id="snapshotBtn">Prendre une Photo</button>
+<button id="openFolderBtn">📁 Ouvrir le Dossier Photos</button>
+
+<script src="render.js"></script>
+</body>
+</html>
